@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style1.css')}}">
+</head>
+<body>
+    <nav>
+        <a href="/predictions">Predictions</a>
+        <a href="/history">History</a>
+    </nav>
+    <h1>Welcome Loan Prediction</h1>
+    <img src="{{url_for('static',filename='loan.png')}}">
+    <p>The Loan Prediction System is a machine learning based web application designed to predict whether a loan will be approved or rejected based on the applicant’s salary details. This project is developed using Python, Flask, SQLite, Scikit-learn, and Matplotlib. The system uses the Decision Tree Classifier algorithm to analyze salary data and generate accurate loan approval predictions. Users can enter their salary through the prediction page, and the model displays the prediction result along with the probability of approval. The application also stores prediction records in a database and provides additional features such as viewing history, updating records, and deleting records. A decision tree visualization is generated to help users understand how the machine learning model makes predictions. This project demonstrates the practical implementation of machine learning techniques in financial decision-making systems.
+</p>
+</body>
+</html

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Approval Prediction</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/history">History</a>
+       
+    
+    </nav>
+    <h1>Loan Approval Prediction</h1>
+    <form method="POST">
+        <label>Enter your salary:</label>
+        <input type="number" name="salary" placeholder="Enter Salary" required>
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction is not none %}
+        {% if prediction == 1 %}
+            <h2>Prediction: Approved</h2>
+        {% else %}
+            <h2>Prediction: Rejected</h2>
+        {% endif %}
+        <h2>Result:{{result}}</h2>
+        <h2>probability of approval:{{ "%.2f"|format(probability * 100) }}%</h2>
+        <img src="{{url_for('static',filename='decision_tree.png')}}">
+   
+    {% endif %}
+</body>
+</html>

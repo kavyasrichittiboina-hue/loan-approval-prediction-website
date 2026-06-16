@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/history">History</a>
+        
+      
+    
+    </nav>
+    <h1>View History</h1>
+    <table border="1">
+    <tr>
+        <th>ID</th>
+        <th>salary</th>
+        <th>prediction</th>
+        <th>probability</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for loan in history %}
+
+    <tr>
+        <td>{{loan[0]}}</td>
+        <td>{{loan[1]}}</td>
+        <td>
+            {% if loan[2]== 1 %}
+                pass
+            {% else %}
+                fail
+            {% endif %}
+        </td>
+        <td>{{ "%.2f"|format(loan[3] * 100) }}%</td>
+        <td>
+            <a href="/update/{{loan[0]}}">Update</a>
+        </td>
+        <td>
+            <a href="/delete/{{loan[0]}}">Delete</a>
+        </td>
+        
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
